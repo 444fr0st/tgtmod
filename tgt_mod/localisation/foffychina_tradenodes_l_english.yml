@@ -1,0 +1,14 @@
+﻿l_english:
+ fo_korea:0 "Korea"
+ fo_xilingol:0 "Xilin Gol"
+ fo_dongting:0 "Dongting"
+ trade_company_xilingol:0 "Xilingol Charter"
+ TRADE_COMPANY_XILINGOL_Root_Culture_GetName:0 "[Root.Culture.GetName] Xilingol Company"
+ TRADE_COMPANY_XILINGOL_Xilingol_Trade_Company:0 "Xilingol Trade Company"
+ trade_company_central_china:0 "Central Chinese Charter"
+ TRADE_COMPANY_CENTRAL_AFRICA_Root_Culture_GetName:0 "[Root.Culture.GetName] Central Chinese Company"
+ TRADE_COMPANY_CENTRAL_CHINA_China_Trade_Company:0 "Central Chinese Trade Company"
+ trade_company_korea:0 "Korean Charter"
+ TRADE_COMPANY_KOREA_Root_Culture_GetName:0 "[Root.Culture.GetName] Korean Company"
+ TRADE_COMPANY_KOREA_Korea_Trade_Company:0 "Korean Trade Company"
+ 

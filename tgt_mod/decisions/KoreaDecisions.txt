@@ -1,0 +1,75 @@
+country_decisions = {
+
+	fchina_korea_formation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_korea_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = KOR }
+			OR = {
+				primary_culture = korean
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2694		#Gangneung
+				province_id = 4227		#Jinju
+				province_id = 736		#Sangju
+				province_id = 5672		#Kilju
+				province_id = 2744		#Ningbian
+				province_id = 1013		#Cheongju
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no			
+			owns_core_province = 2694		#Gangneung
+			owns_core_province = 4227		#Jinju			
+			owns_core_province = 736		#Sangju			
+			owns_core_province = 5672		#Kilju			
+			owns_core_province = 2744		#Ningbian			
+			owns_core_province = 1013		#Cheongju			
+		}
+		effect = {
+			735 = {
+				move_capital_effect = yes
+			}
+			change_tag = KOR
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			korea_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = KOR
+			}
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			set_country_flag = formed_korea_flag
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_importance = 500		
+	}
+
+} #End of country decisions

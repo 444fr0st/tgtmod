@@ -1,0 +1,19 @@
+PR_african_colonist_reform = {
+    icon = "tribal_civil_society"
+    allow_normal_conversion = yes
+    potential = {
+        OR = {
+            technology_group = east_african
+            technology_group = west_african
+            technology_group = central_african
+            technology_group = sub_saharan
+        }
+    }
+        modifiers = {
+        colonists = 1
+        global_colonial_growth = 15
+    }
+    ai = {
+        factor = 0.0 #generic
+    }
+}

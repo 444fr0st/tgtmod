@@ -1,0 +1,170 @@
+PR_qar_missions = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {	
+		NOT = { map_setup = map_setup_random }
+		tag = QAR
+	}
+	has_country_shield = yes
+
+	PR_qar_missions1_desc = {
+		icon = mission_arabian_fort
+		position = 4
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = { 
+				province_id = 2204
+				province_id = 4303
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			2204 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4303 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 50
+			samtskhe_area = {
+				limit = {
+					NOT = { is_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_claim = ROOT
+			}
+			kartli_kakheti_area = {
+				limit = {
+					NOT = { is_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_claim = ROOT
+			}
+			imereti_area = {
+				limit = {
+					NOT = { is_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	PR_qar_missions2_desc = {
+		icon = mission_non-western_cavalry_raid
+		position = 5
+		required_missions = { PR_qar_missions1_desc }
+		provinces_to_highlight = {
+			OR = { 
+				area = samtskhe_area
+				area = kartli_kakheti_area
+				area = imereti_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			samtskhe_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kartli_kakheti_area = {
+				type = all
+				owned_by = ROOT
+			}
+			imereti_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 20
+			add_treasury = 500
+		}
+	}
+	PR_qar_missions3_desc = {
+		icon = mission_have_two_subjects
+		position = 6
+		required_missions = { PR_qar_missions2_desc }
+		trigger = {
+			NOT = {
+				exists = MSY
+			}
+		}
+		effect = {
+			bahrain_area = {
+				limit = {
+					NOT = { is_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			nafud_area  = {
+				limit = {
+					NOT = { is_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			qasim_area  = {
+				limit = {
+					NOT = { is_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			yamamah_area  = {
+				limit = {
+					NOT = { is_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	PR_qar_missions4_desc = {
+		icon = mission_bedouins
+		position = 7
+		required_missions = { PR_qar_missions3_desc }
+		provinces_to_highlight = {
+			OR = { 
+				area = bahrain_area
+				area = nafud_area
+				area = qasim_area
+				area = yamamah_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			bahrain_area = {
+				type = all
+				owned_by = ROOT
+			}
+			nafud_area = {
+				type = all
+				owned_by = ROOT
+			}
+			qasim_area = {
+				type = all
+				owned_by = ROOT
+			}
+			yamamah_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = PR_qar_missions4_reward
+				hidden_effect = {
+				}
+			set_country_flag = PR_qar_missions4_desc_completed
+		}
+	}
+}
