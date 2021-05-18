@@ -1,7 +1,7 @@
 #1247 - Corsica
 
-owner = MLO
-controller = MLO
+owner = LAN
+controller = LAN
 culture = sardinian
 religion = catholic
 capital = "Bastia"
@@ -11,8 +11,8 @@ base_production = 3
 trade_goods = naval_supplies
 base_manpower = 2
 is_city = yes
-add_core = MLO
-add_core = COR
+add_core = LAN
+
 
 
 
