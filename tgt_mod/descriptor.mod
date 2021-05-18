@@ -3,4 +3,4 @@ tags={
 	"Gameplay"
 }
 name="TGT Mod"
-supported_version="1.31.3"
+supported_version="1.30.4"
