@@ -43,13 +43,14 @@ country_event = {
 			}
 		}
 		custom_tooltip = flavor_fra.15
-		#FRA = { country_event = { id = french_war21 } }
+		
 		ENG = {
 			declare_war_with_cb = {
 				who = FRA
 				casus_belli = cb_restore_personal_union
 			}
 		}
+		FRA = { country_event = { id = flavor_fra.111 } }
 	}
 	option = {
 		name = "tgtname2"
@@ -81,7 +82,7 @@ country_event = {
 			add_truce_with = FRA
 
 		add_prestige = -20
-		#FRA = { country_event = { id = french_peace } }
+		FRA = { country_event = { id = flavor_fra.111 } }
 		
 	}
 	}

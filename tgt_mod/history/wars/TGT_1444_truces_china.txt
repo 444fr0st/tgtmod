@@ -1,0 +1,25 @@
+name = "Conquest of Yuanling"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 2173 # Yuanling
+}
+
+# Truce between Jianzhou and northern Chinese
+1443.1.11 = {
+	add_attacker = OIR
+	add_attacker = MJZ
+	add_defender = YAN
+	add_defender = CSH
+	add_defender = QIN
+}
+
+# Peace and end of war
+
+1444.1.1 = {
+	rem_attacker = OIR
+	rem_attacker = MJZ
+	rem_defender = YAN
+	rem_defender = CSH
+	rem_defender = QIN
+}

@@ -5,19 +5,9 @@
 namespace = flavor_fra
 normal_or_historical_nations = yes
 
-country_event = {
-	id = french_peace
-	title = "tgt_frenchpeace"
-	desc = "tgt_frenchpeace1"
-	picture = SIEGE_eventPicture
-
-	fire_only_once = yes
-	option = 
-  
-}
 
 country_event = {
-	id = french_war21
+	id = flavor_fra.111
 	title = "tgt_francewa2"
 	desc = "tgt_francewa3"
 	picture = SIEGE_eventPicture

@@ -5,7 +5,6 @@
 christian = {
 	defender_of_faith = yes
 	can_form_personal_unions = yes
-	
 	center_of_religion = 118 # Rome
 
 	# Flag emblem values - Used for Dynamic Setup of Random Nations.
@@ -50,7 +49,7 @@ christian = {
 			}			
 		
 		}
-		
+		declare_war_in_regency = yes
 		heretic = { BOGOMILIST WALDENSIAN FRATICELLI LOLLARD SOCINIAN }
 		
 		papacy = {
@@ -318,7 +317,6 @@ christian = {
 	}
 
 	anglican = {
-		declare_war_in_regency = yes
 		color = { 135 77 255 }
 		icon = 28
 
@@ -345,13 +343,13 @@ christian = {
 		}
 		aspects_name = ANGLICAN_ASPECTS
 		
+		declare_war_in_regency = yes
 		heretic = { PENTECOSTAL PURITAN CONGREGATIONALIST }
 		
 		date = 1534.11.3 # act of supremacy
 	}
 	
 	hussite = {
-		declare_war_in_regency = yes
 		color = { 244 55 9 }
 		icon = 22
 
@@ -383,6 +381,7 @@ christian = {
 		}
 		aspects_name = PROTESTANT_ASPECTS
 		
+		declare_war_in_regency = yes
 		heretic = { TABORITE UTRAQUIST ORPHAN }
 	}
 	
@@ -520,6 +519,7 @@ christian = {
 			}
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { PENTECOSTAL PURITAN CONGREGATIONALIST }
 		
 		date = 1517.10.31
@@ -638,6 +638,7 @@ christian = {
 			}
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { METHODIST BAPTIST QUAKER }
 		
 		date = 1536.5.1
@@ -661,7 +662,7 @@ christian = {
 			local_missionary_strength = -0.01
 		}
 		
-		
+		declare_war_in_regency = yes
 		heretic = { OLD_BELIEVER MOLOKAN DUKHOBOR KHLYST SKOPTSY ICONOCLAST }
 		
 		has_patriarchs = yes		# Uses patriarch authority
@@ -672,6 +673,7 @@ christian = {
 
 			icon_michael = {
 				discipline = 0.05
+				manpower_recovery_speed = 0.1
 				
 				allow = {
 					always = yes
@@ -799,6 +801,7 @@ christian = {
 			local_missionary_strength = -0.02
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { ZAMIKAELITES STEPHANITES EUSTATHIANS }
 		
 		misguided_heretic = yes
@@ -821,7 +824,6 @@ christian = {
 
 muslim = {
 	defender_of_faith = yes
-	
 	center_of_religion = 385 # Mecca
 
 	flags_with_emblem_percentage = 33
@@ -1134,6 +1136,7 @@ muslim = {
 			local_missionary_strength = -0.02
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { BEKTASHI AHMADI ZIKRI YAZIDI }
 		
 		uses_piety = yes				# Uses piety mechanics
@@ -1155,6 +1158,7 @@ muslim = {
 			local_missionary_strength = -0.02
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { DRUZE HURUFI ZAIDI }
 		
 		uses_piety = yes				# Uses piety mechanics
@@ -1176,6 +1180,7 @@ muslim = {
 			local_missionary_strength = -0.02
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { HARURI SUFRI NAJADAT AZRAQI }
 		
 		uses_piety = yes				# Uses piety mechanics
@@ -1187,11 +1192,11 @@ muslim = {
 }
 
 eastern = {
-	defender_of_faith = yes
+	defender_of_faith = no
 
 	flags_with_emblem_percentage = 33
 	flag_emblem_index_range = { 58 80 }
-
+	
 	buddhism = { #Theravada
 		declare_war_in_regency = yes
 		color = { 204 76 0 }
@@ -1249,6 +1254,7 @@ eastern = {
 			}
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { ZEN }
 		
 		uses_karma = yes
@@ -1283,6 +1289,7 @@ eastern = {
 		
 		harmonized_modifier = harmonized_mahayana
 		
+		declare_war_in_regency = yes
 		heretic = { ZEN }
 		
 		uses_karma = yes
@@ -1300,6 +1307,7 @@ eastern = {
 			adm_tech_cost_modifier = -0.1
 			stability_cost_modifier = -0.1
 		}
+		declare_war_in_regency = yes
 		heretic = { TAOIST }
 		uses_harmony = yes
 	}
@@ -1318,6 +1326,7 @@ eastern = {
 			discipline = 0.05
 			global_unrest = -1
 		}
+		declare_war_in_regency = yes
 		heretic = { SHUGENDO }
 		uses_isolationism = yes
 		
@@ -1334,7 +1343,7 @@ dharmic = {
 
 	flags_with_emblem_percentage = 33
 	flag_emblem_index_range = { 61 82 } #Many shared with Eastern
-
+	
 	hinduism = {
 		declare_war_in_regency = yes
 		color = { 0 204 204 }
@@ -1364,6 +1373,7 @@ dharmic = {
 			}
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { BHAKTI }
 	}
 
@@ -1397,6 +1407,7 @@ dharmic = {
 				duration = 3650
 			}
 		}
+		declare_war_in_regency = yes
 
 		heretic = { MASANDIS }
 
@@ -1413,9 +1424,8 @@ pagan = {
 
 	flags_with_emblem_percentage = 10
 	flag_emblem_index_range = { 83 96 }
-
+	
 	animism = {
-		declare_war_in_regency = yes
 		color = { 127 0 0 }
 		icon = 11
 		country = {
@@ -1430,10 +1440,10 @@ pagan = {
 			local_missionary_strength = 0.02
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { SNAKE_CLAN }
 	}
 	shamanism = { #Fetishism, tag kept to avoid breaking saves.
-		declare_war_in_regency = yes
 		color = { 127 76 76 }
 		icon = 12
 		country = {
@@ -1449,6 +1459,7 @@ pagan = {
 		}
 
 		fetishist_cult = yes
+		declare_war_in_regency = yes
 		heretic = { GOAT_SKULL }
 	}
 	totemism = {
@@ -1467,6 +1478,7 @@ pagan = {
 			local_missionary_strength = 0.02
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { BEAR_SPIRIT }	
 	}
 	
@@ -1491,6 +1503,7 @@ pagan = {
 		authority = yes
 		religious_reforms = yes
 		reform_tooltip = INTI_REFORM_TOOLTIP
+		declare_war_in_regency = yes
 		
 		heretic = { INTI_HERETIC }	
 	}
@@ -1537,6 +1550,7 @@ pagan = {
 			local_missionary_strength = 0.02
 		}
 		
+		declare_war_in_regency = yes
 		religious_reforms = yes
 		reform_tooltip = MESOAMERICAN_REFORM_TOOLTIP
 		
@@ -1559,6 +1573,7 @@ pagan = {
 			local_missionary_strength = 0.02
 		}
 		
+		declare_war_in_regency = yes
 		personal_deity = yes
 		
 		heretic = { OLD_NORSE }	
@@ -1575,7 +1590,6 @@ pagan = {
 		can_have_secondary_religion = yes
 		heretic = { OLD_TENGRI }
 	}
-	
 	crusade_name = CRUSADE
 	harmonized_modifier = harmonized_pagan
 }
@@ -1608,13 +1622,11 @@ jewish_group = {
 	harmonized_modifier = harmonized_jewish_group
 	
 	crusade_name = HOLY_WAR
-	
-}
+	}
 
 
 zoroastrian_group = {
 	defender_of_faith = yes
-
 	flag_emblem_index_range = { 110 110 }
 	zoroastrian = {
 		declare_war_in_regency = yes
@@ -1632,11 +1644,11 @@ zoroastrian_group = {
 			tolerance_own = 1
 		}
 		
+		declare_war_in_regency = yes
 		heretic = { MAZDAKI MANICHEAN }	
 	}
 	
 	harmonized_modifier = harmonized_zoroastrian_group
 	
 	crusade_name = HOLY_WAR
-	
-}
+	}
