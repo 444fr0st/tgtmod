@@ -5,6 +5,29 @@
 namespace = flavor_fra
 normal_or_historical_nations = yes
 
+country_event = {
+	id = french_peace
+	title = "tgt_frenchpeace"
+	desc = "tgt_frenchpeace1"
+	picture = SIEGE_eventPicture
+
+	fire_only_once = yes
+	option = 
+  
+}
+
+country_event = {
+	id = french_war21
+	title = "tgt_francewa2"
+	desc = "tgt_francewa3"
+	picture = SIEGE_eventPicture
+
+	fire_only_once = yes
+	option = {
+		name = "frenchmaine7"
+	}
+}
+
 # The Birth of a Permanent Taxation System
 country_event = {
 	id = flavor_fra.9100
@@ -57,11 +80,11 @@ country_event = {
 }
 
 # The End of the Hundred Years War
-country_event = {
-	id = flavor_fra.9104
-	title = "flavor_fra.EVTNAME9104"
-	desc = "flavor_fra.EVTDESC9104"
-	picture = DIPLOMACY_eventPicture
+#country_event = {
+	#id = flavor_fra.9104
+	#title = "flavor_fra.EVTNAME9104"
+	#desc = "flavor_fra.EVTDESC9104"
+	#picture = DIPLOMACY_eventPicture
 
 	fire_only_once = yes
 	
@@ -94,7 +117,7 @@ country_event = {
 		months = 12
 	}
 	
-	immediate = {
+	#immediate = {
 		hidden_effect = {
 			set_country_flag = had_end_of_HYW_france
 			if = {
@@ -115,7 +138,7 @@ country_event = {
 		}
 	}
 
-	option = {			# Time to build a stronger nation
+	#option = {			# Time to build a stronger nation
 		name = "flavor_fra.EVTOPTA3104"
 		add_stability_or_adm_power = yes
 		add_adm_power = 50
@@ -1657,7 +1680,7 @@ country_event = {
 }
 
 # The Surrender of Maine
-country_event = {
+#country_event = {
 	id = flavor_fra.6
 	title = "flavor_fra.6.t"
 	desc = "flavor_fra.6.d"
@@ -1666,7 +1689,6 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		always = no
 		tag = ENG
 		is_subject = no
 		exists = FRA
@@ -1727,68 +1749,22 @@ country_event = {
 }
 
 # The Surrender of Maine
-country_event = {
+#country_event = {
 	id = flavor_fra.7
-	title = "flavor_fra.7.t"
-	desc = "flavor_fra.7.d"
+	title = "tgt_francewa2"
+	desc = "tgt_francewa3"
 	picture = SIEGE_eventPicture
 	
 	is_triggered_only = yes
 
-	major = yes
+	major = no
 	
 	option = {
-		name = "flavor_fra.7.a" #'teach them how to war' /Reversed Henry V
+		name = "" #'teach them how to war' /Reversed Henry V
 		ai_chance = {
 			factor = 100 #Shouldn't take this from them really.
 			modifier = {
-				factor = 0
-				is_at_war = yes
-			}
-			modifier = {
-				factor = 0
-				has_any_disaster = yes
-			}
-		}
-		ENG = {
-			declare_war_with_cb = {
-				who = FRA
-				casus_belli = cb_restore_personal_union
-			}
-		}
-		177 = {
-			change_controller = FRA
-		}
-	}
-	option = {
-		name = "flavor_fra.7.b" #Unpopular but preserves the peace?
-		ai_chance = {
-			factor = 1
-		}
-		add_prestige = -10
-		FROM = {
-			add_truce_with = ROOT
-		}
-		add_truce_with = FROM
-		if = {
-			limit = { exists = PRO }
-			PRO = {
-				add_opinion = {
-					who = ROOT
-					modifier = fra_gave_up_on_maine
-				}
-			}
-		}
-		if = {
-			limit = {
-				has_estate = estate_nobles
-			}
-			add_estate_loyalty = {
-				estate = estate_nobles
-				loyalty = -10
-			}
-		}
-	}
+				
 }
 
 # The Surrender of Maine
@@ -1804,21 +1780,15 @@ country_event = {
 
 	option = {
 		name = "flavor_fra.8.a" #
-		add_prestige = 10
-		hidden_effect = {
-			FROM = {
-				add_truce_with = ROOT
+		
 			}
-		}
-		add_truce_with = FROM
-		177 = {
-			cede_province = FRA
-			hidden_effect = { add_local_autonomy = -50 }
-		}
+		
+		
+		
 	}
-}
 
-# François Villon
+
+# Franï¿½ois Villon
 country_event = {
 	id = flavor_fra.9000
 	title = "flavor_fra.EVTNAME9000"
@@ -1851,7 +1821,7 @@ country_event = {
 		name = "flavor_fra.EVTOPTB9000"
 		define_advisor = {
 			type = artist
-			name = "François Villon"
+			name = "Franï¿½ois Villon"
 			culture = cosmopolitan_french
 			discount = yes
 			skill = 3
@@ -1874,7 +1844,7 @@ country_event = {
 }
 
 #New event by Pierre du Plessis
-#Reference is to Louise Marie Thérèse, The Black Nun of Moret
+#Reference is to Louise Marie Thï¿½rï¿½se, The Black Nun of Moret
 country_event = {
 	id = flavor_fra.9500
 	title = flavor_fra.9500.name

@@ -1,0 +1,839 @@
+########################################
+#TGT Events                            #
+########################################
+
+namespace = PR_events
+
+# Revealing Africa to Africans
+country_event = {
+    id = PR_events.1
+    title = "PR_events.1.t"
+    desc = "PR_events.1.d"
+    picture = COURT_eventPicture
+
+    trigger = {
+        OR = {
+            tag = MOR
+            tag = SON
+            tag = ZAN
+            tag = ETH
+            tag = KON
+			tag = MAM
+			tag = MAL
+        }
+        NOT = { 
+			has_country_flag = PR_discover_africa_flag
+		}
+    }
+	
+    mean_time_to_happen = {
+        days = 1
+    }
+	
+    immediate = {
+		hidden_effect = {
+			set_country_flag = PR_discover_africa_flag
+			africa_superregion = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}			
+			southern_africa_superregion = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+			near_east_superregion = {
+				ROOT = {
+					discover_province = PREV
+				}
+			}
+		}
+	}
+	
+	option = {
+        name = "PR_events.1.a"
+		custom_tooltip = PR_events.1.a
+		ai_chance = {
+		}
+    }
+}
+
+# Choosing muslim school
+country_event = {
+    id = PR_events.2
+    title = "PR_events.2.t"
+    desc = "PR_events.2.d"
+    picture = BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			NOT = { 
+				religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+			}
+		}
+		name = PR_events.2.a # Hanafi
+		adm_power_cost = 50
+		clear_religious_scholar_modifiers_effect = yes
+		custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+		add_country_modifier = { name = hanafi_scholar_modifier duration = 7300 }
+	}
+	option = {
+		trigger = {
+			NOT = { 
+				religious_school = {
+					group = muslim
+					school = hanbali_school
+				}
+			}
+		}
+		name = PR_events.2.b # Hanbali
+		adm_power_cost = 50
+		clear_religious_scholar_modifiers_effect = yes
+		custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+		add_country_modifier = { name = hanbali_scholar_modifier duration = 7300 }
+	}
+	option = {
+		trigger = {
+			NOT = { 
+				religious_school = {
+					group = muslim
+					school = maliki_school
+				}
+			}
+		}
+		name = PR_events.2.c # Maliki
+		adm_power_cost = 50
+		clear_religious_scholar_modifiers_effect = yes
+		custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+		add_country_modifier = { name = maliki_scholar_modifier duration = 7300 }
+	}
+	option = {
+		trigger = {
+			NOT = { 
+				religious_school = {
+					group = muslim
+					school = shafii_school
+				}
+			}
+		}
+		name = PR_events.2.d2 # Shafii
+		adm_power_cost = 50
+		clear_religious_scholar_modifiers_effect = yes
+		custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+		add_country_modifier = { name = shafii_scholar_modifier duration = 7300 }
+	}
+	option = {
+		trigger = {
+			NOT = { 
+				religious_school = {
+					group = muslim
+					school = ismaili_school
+				}
+			}
+		}
+		name = PR_events.2.e # Ismaili
+		adm_power_cost = 50
+		clear_religious_scholar_modifiers_effect = yes
+		custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+		add_country_modifier = { name = ismaili_scholar_modifier duration = 7300 }
+	}
+	option = {
+		trigger = {
+			NOT = { 
+				religious_school = {
+					group = muslim
+					school = jafari_school
+				}
+			}
+		}
+		name = PR_events.2.f # Jafari
+		adm_power_cost = 50
+		clear_religious_scholar_modifiers_effect = yes
+		custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+		add_country_modifier = { name = jafari_scholar_modifier duration = 7300 }
+	}
+	option = {
+		trigger = {
+			NOT = { 
+				religious_school = {
+					group = muslim
+					school = zaidi_school
+				}
+			}
+		}
+		name = PR_events.2.g # Zaidi
+		adm_power_cost = 50
+		clear_religious_scholar_modifiers_effect = yes
+		custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+		add_country_modifier = { name = zaidi_scholar_modifier duration = 7300 }
+	}
+}
+
+
+# Iberian Wedding failsafe
+country_event = {
+    id = PR_events.3
+    title = "PR_events.3.t"
+    desc = "PR_events.3.d"
+    picture = COURT_eventPicture
+	hidden = yes
+
+    trigger = {
+		AND = {
+			is_year = 1485
+			NOT = { 
+				has_country_flag = PR_iberian_wedding_late
+			}
+		}
+	}
+	
+    mean_time_to_happen = {
+        days = 1
+    }
+	
+    immediate = {
+		hidden_effect = {
+			country_event = { 
+				id = flavor_spa.3716
+				days = 1
+			}
+		}
+	}
+	
+	option = {
+    }
+}
+
+# Colonial overlord bankrupts
+country_event = {
+    id = PR_events.4
+    title = "PR_events.4.t"
+    desc = "PR_events.4.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	
+    trigger = {
+		is_bankrupt = yes
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_subject_country = {
+				country_event = {
+					id = PR_events.5
+				}
+			}
+		}
+	}
+	
+	option = {
+	}
+}
+
+# Colonial nations receive malus
+country_event = {
+    id = PR_events.5
+    title = "PR_events.5.t"
+    desc = "PR_events.5.d"
+    picture = CIVIL_WAR_eventPicture
+	is_triggered_only = yes
+	
+    trigger = {
+		is_colonial_nation = yes
+	}
+	
+	immediate = {
+		hidden_effect = {
+			every_owned_province = {
+				add_devastation = 10
+			}
+		}
+	}
+	
+	option = {
+		name = PR_events.5.a # Only Option
+		add_country_modifier = { name = PR_events.5.a.1 duration = 1825 }
+    }
+}
+
+# Country receives patch notes England
+country_event = {
+    id = PR_events.6
+    title = "PR_events.eng.t"
+    desc = "PR_events.eng.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = ENG
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes France
+country_event = {
+    id = PR_events.7
+    title = "PR_events.fra.t"
+    desc = "PR_events.fra.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = FRA
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Burgundy
+country_event = {
+    id = PR_events.8
+    title = "PR_events.bur.t"
+    desc = "PR_events.bur.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = BUR
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Castile
+country_event = {
+    id = PR_events.9
+    title = "PR_events.cas.t"
+    desc = "PR_events.cas.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = CAS
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Portugal
+country_event = {
+    id = PR_events.10
+    title = "PR_events.por.t"
+    desc = "PR_events.por.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = POR
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Austria
+country_event = {
+    id = PR_events.11
+    title = "PR_events.hab.t"
+    desc = "PR_events.hab.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = HAB
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Denmark
+country_event = {
+    id = PR_events.12
+    title = "PR_events.dan.t"
+    desc = "PR_events.dan.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = DAN
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Naples
+country_event = {
+    id = PR_events.13
+    title = "PR_events.nap.t"
+    desc = "PR_events.nap.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = NAP
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Milan
+country_event = {
+    id = PR_events.14
+    title = "PR_events.mlo.t"
+    desc = "PR_events.mlo.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = MLO
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Brandenburg
+country_event = {
+    id = PR_events.15
+    title = "PR_events.bra.t"
+    desc = "PR_events.bra.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = BRA
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Venice
+country_event = {
+    id = PR_events.16
+    title = "PR_events.ven.t"
+    desc = "PR_events.ven.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = VEN
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Lithuania
+country_event = {
+    id = PR_events.17
+    title = "PR_events.lit.t"
+    desc = "PR_events.lit.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = LIT
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Uzbek
+country_event = {
+    id = PR_events.18
+    title = "PR_events.shy.t"
+    desc = "PR_events.shy.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = SHY
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Mamluks
+country_event = {
+    id = PR_events.19
+    title = "PR_events.mam.t"
+    desc = "PR_events.mam.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = MAM
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Qara Qoyunlu
+country_event = {
+    id = PR_events.20
+    title = "PR_events.qar.t"
+    desc = "PR_events.qar.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = QAR
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Ethiopia
+country_event = {
+    id = PR_events.21
+    title = "PR_events.mor.t"
+    desc = "PR_events.mor.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = MOR
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Mali
+country_event = {
+    id = PR_events.22
+    title = "PR_events.mal.t"
+    desc = "PR_events.mal.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = MAL
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Kongo
+country_event = {
+    id = PR_events.23
+    title = "PR_events.kon.t"
+    desc = "PR_events.kon.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = KON
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Kilwa
+country_event = {
+    id = PR_events.24
+    title = "PR_events.zan.t"
+    desc = "PR_events.zan.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = ZAN
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Songhai
+country_event = {
+    id = PR_events.25
+    title = "PR_events.son.t"
+    desc = "PR_events.son.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = SON
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Chinese
+country_event = {
+    id = PR_events.26
+    title = "PR_events.chi.t"
+    desc = "PR_events.chi.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+		OR = {
+			tag = QIC
+			tag = YUE
+			tag = WUU
+			tag = CYI
+			tag = CXI
+			tag = CSH
+			tag = FO2
+		}
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Jianzhou
+country_event = {
+    id = PR_events.27
+    title = "PR_events.mjz.t"
+    desc = "PR_events.mjz.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = MJZ
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Shimazu
+country_event = {
+    id = PR_events.28
+    title = "PR_events.ues.t"
+    desc = "PR_events.ues.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       tag = SMZ
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Indians
+country_event = {
+    id = PR_events.29
+    title = "PR_events.ind.t"
+    desc = "PR_events.ind.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+		OR = {
+			tag = JNP
+			tag = MER
+			tag = BAH
+			tag = VIJ
+			tag = BNG
+		}
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives generic patch notes Everyone else
+country_event = {
+    id = PR_events.30
+    title = "PR_events.all.t"
+    desc = "PR_events.all.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+		AND = {
+			ai = no
+			NOT = {
+				OR = {
+					tag = ENG
+					tag = FRA
+					tag = BUR
+					tag = CAS
+					tag = POR
+					tag = HAB
+					tag = DAN
+					tag = NAP
+					tag = MLO
+					tag = BRA
+					tag = VEN
+					tag = LIT
+					tag = SHY
+					tag = QAR
+					tag = MAM
+					tag = MOR
+					tag = MAL
+					tag = KON
+					tag = ZAN
+					tag = SON
+					tag = MJZ
+					tag = SMZ
+					tag = JNP
+					tag = MER
+					tag = BAH
+					tag = VIJ
+					tag = BNG
+					tag = QIC
+					tag = CSH
+					tag = YUE
+					tag = WUU
+					tag = CXI
+					tag = CYI
+					tag = FO2
+					is_colonial_nation = yes
+				}
+			}
+		}
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
+
+# Country receives patch notes Colonial Nation
+country_event = {
+    id = PR_events.31
+    title = "PR_events.col.t"
+    desc = "PR_events.col.d"
+    picture = COURT_eventPicture
+	is_triggered_only = yes
+
+    trigger = {
+       is_colonial_nation = yes
+    }
+		
+	option = {
+        name = "PR_events.patch"
+		clr_country_flag = PR_patch_notes_flag
+		ai_chance = {
+		}
+    }
+}
